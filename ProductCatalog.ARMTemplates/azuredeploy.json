@@ -52,6 +52,19 @@
         "supportsHttpsTrafficOnly": true
       }
     },
+
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2020-08-01-preview",
+      "name": "[concat(parameters('storageaccount_name'), '/images')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageaccount_name'))]"
+      ],
+      "properties": {
+        "publicAccess": "Blob"
+      }
+    },
+
     {
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2018-02-01",
@@ -99,6 +112,9 @@
         "storageAccountType": "GRS"
       }
     },
+
+
+
     {
       "type": "Microsoft.Sql/servers/firewallRules",
       "apiVersion": "2015-05-01-preview",
