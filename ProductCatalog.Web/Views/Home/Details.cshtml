@@ -7,9 +7,9 @@
 <div>
     <h4>Selected Catalog Item</h4>
     <hr />
-    <img src="https://ecomstorage123.blob.core.windows.net/images/shoes-@(Model.Id).png" />
+    <img src="https://@(ViewBag.StorageEndPoint)/images/shoes-@(Model.Id).png" />
     <dl class="row">
-        <dt  class="col-sm-2>
+        <dt  class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
         <dd class="col-sm-10">

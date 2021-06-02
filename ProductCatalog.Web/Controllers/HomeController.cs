@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using ProductCatalog.Web.Models;
 using ProductCatalog.Web.Services;
@@ -14,8 +15,9 @@ namespace MVCWebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICatalogService _catalogService;
-        public HomeController(ILogger<HomeController> logger, ICatalogService catalogService)
+        public HomeController(ILogger<HomeController> logger, ICatalogService catalogService, IConfiguration config)
         {
+            ViewBag.StorageEndPoint = config["storage-endpoint"];
             _logger = logger;
             _catalogService = catalogService;
         }
