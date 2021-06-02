@@ -15,10 +15,11 @@ namespace MVCWebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICatalogService _catalogService;
+        IConfiguration _config;
         public HomeController(ILogger<HomeController> logger, ICatalogService catalogService, IConfiguration config)
         {
-            ViewBag.StorageEndPoint = config["storage-endpoint"];
             _logger = logger;
+            _config = config;
             _catalogService = catalogService;
         }
 
@@ -29,12 +30,14 @@ namespace MVCWebApp.Controllers
 
         public async Task< IActionResult> Catalog()
         {
+            ViewBag.StorageEndPoint = _config["storage-endpoint"];
             IEnumerable<CatalogItem> items = await _catalogService.GetCatalogItems();
             return View(items);
         }
 
         public async Task<IActionResult> Details(int id)
         {
+            ViewBag.StorageEndPoint = _config["storage-endpoint"];
             CatalogItem item = await _catalogService.GetById(id);
             return View(item);
         }
