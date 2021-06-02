@@ -79,7 +79,7 @@
     {
       "type": "Microsoft.Sql/servers/databases",
       "apiVersion": "2020-08-01-preview",
-      "name": "[concat(parameters('servers_dbserver_name'), '/DecnsoftEComDb')]",
+      "name": "[concat(parameters('servers_dbserver_name'), '/ProductCatalogDb')]",
       "location": "eastus",
       "dependsOn": [
         "[resourceId('Microsoft.Sql/servers', parameters('servers_dbserver_name'))]"
