@@ -53,27 +53,6 @@
       }
     },
     {
-      "type": "Microsoft.Storage/storageAccounts/blobServices",
-      "apiVersion": "2020-08-01-preview",
-      "name": "[concat(parameters('storageaccount_name'), '/default')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageaccount_name'), 'default')]",
-        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageaccount_name'))]"
-      ],
-      "sku": {
-        "name": "Standard_LRS",
-        "tier": "Standard"
-      },
-      "properties": {
-        "cors": {
-          "corsRules": []
-        },
-        "deleteRetentionPolicy": {
-          "enabled": false
-        }
-      }
-    },
-    {
       "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
       "apiVersion": "2020-08-01-preview",
       "name": "[concat(parameters('storageaccount_name'), '/default/images')]",
