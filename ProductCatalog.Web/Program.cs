@@ -21,6 +21,7 @@ namespace ProductCatalog.Web
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>(); 
+                    //Demo
                 });
     }
 }
