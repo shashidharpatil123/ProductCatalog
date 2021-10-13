@@ -25,6 +25,7 @@ namespace MVCWebApp.Controllers
 
         public IActionResult Index()
         {
+            int n=0;
             return View();
         }
 
