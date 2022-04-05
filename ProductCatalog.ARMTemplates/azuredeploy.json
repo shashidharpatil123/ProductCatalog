@@ -26,19 +26,6 @@
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Sql/servers",
-      "apiVersion": "2019-06-01-preview",
-      "name": "[parameters('servers_dbserver_name')]",
-      "location": "eastus",
-      "kind": "v12.0",
-      "properties": {
-        "administratorLogin": "dssadmin",
-        "administratorLoginPassword": "Password@123",
-        "version": "12.0",
-        "publicNetworkAccess": "Enabled"
-      }
-    },
-    {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2020-08-01-preview",
       "name": "[parameters('storageaccount_name')]",
@@ -63,29 +50,17 @@
         "publicAccess": "Blob"
       }
     },
-
     {
-      "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2018-02-01",
-      "name": "[parameters('serverfarms_appPlan_name')]",
-      "location": "East US",
-      "sku": {
-        "name": "S1",
-        "tier": "Standard",
-        "size": "S1",
-        "family": "S",
-        "capacity": 1
-      },
-      "kind": "app",
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2019-06-01-preview",
+      "name": "[parameters('servers_dbserver_name')]",
+      "location": "eastus",
+      "kind": "v12.0",
       "properties": {
-        "perSiteScaling": false,
-        "maximumElasticWorkerCount": 1,
-        "isSpot": false,
-        "reserved": false,
-        "isXenon": false,
-        "hyperV": false,
-        "targetWorkerCount": 0,
-        "targetWorkerSizeId": 0
+        "administratorLogin": "dssadmin",
+        "administratorLoginPassword": "Password@123",
+        "version": "12.0",
+        "publicNetworkAccess": "Enabled"
       }
     },
     {
@@ -111,9 +86,6 @@
         "storageAccountType": "GRS"
       }
     },
-
-
-
     {
       "type": "Microsoft.Sql/servers/firewallRules",
       "apiVersion": "2015-05-01-preview",
@@ -124,6 +96,30 @@
       "properties": {
         "startIpAddress": "0.0.0.0",
         "endIpAddress": "255.255.255.255"
+      }
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2018-02-01",
+      "name": "[parameters('serverfarms_appPlan_name')]",
+      "location": "East US",
+      "sku": {
+        "name": "S1",
+        "tier": "Standard",
+        "size": "S1",
+        "family": "S",
+        "capacity": 1
+      },
+      "kind": "app",
+      "properties": {
+        "perSiteScaling": false,
+        "maximumElasticWorkerCount": 1,
+        "isSpot": false,
+        "reserved": false,
+        "isXenon": false,
+        "hyperV": false,
+        "targetWorkerCount": 0,
+        "targetWorkerSizeId": 0
       }
     },
     {
